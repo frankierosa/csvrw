@@ -1,0 +1,5 @@
+package insertdataintocsv
+
+import (
+	"fmt"
+)
