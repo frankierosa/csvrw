@@ -1,6 +1,6 @@
-# insertdataintocsv
+# csvrw
 
-A simple program to insert data into csv file
+A simple program to read and insert data into csv file.
 
 
 ## How to insert data
