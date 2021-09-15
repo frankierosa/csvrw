@@ -1,5 +1,0 @@
-package insertdataintocsv
-
-import (
-	"fmt"
-)
