@@ -10,7 +10,7 @@ import (
 var file = "data/customer.csv"
 
 func main() {
-	f, err := opencsvfile.OpFile(file)
+	f, err := csvreader.CSVreader(file)
 	if err != nil {
 		log.Fatal(err)
 	}
