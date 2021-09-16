@@ -4,7 +4,7 @@ import (
 	"fmt"
 	"log"
 
-	"github.com/frankierosa/csvrw/opencsvfile"
+	"github.com/frankierosa/csvrw/csvreader"
 )
 
 var file = "data/customer.csv"
