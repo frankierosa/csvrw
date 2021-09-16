@@ -7,7 +7,7 @@ import (
 	"github.com/frankierosa/csvrw/opencsvfile"
 )
 
-var file = "data/customer.csv"
+var file = "data/sample.csv"
 
 func main() {
 	f, err := opencsvfile.OpFile(file)
