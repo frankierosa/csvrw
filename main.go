@@ -16,7 +16,6 @@ func main() {
 	}
 	fmt.Println(f)
 	for i, v := range f {
-		//customer := v[1:]
 		fmt.Println(i, v)
 	}
 }
