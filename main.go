@@ -14,7 +14,9 @@ func main() {
 	if err != nil {
 		log.Fatal(err)
 	}
-	for _, v := range f {
-		fmt.Println(v)
+	fmt.Println(f)
+	for i, v := range f {
+		//customer := v[1:]
+		fmt.Println(i, v)
 	}
 }
