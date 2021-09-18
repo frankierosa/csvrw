@@ -27,6 +27,7 @@ func main() {
 	if err != nil {
 		log.Fatal(err)
 	}
+<<<<<<< HEAD
 
 	// removing any whitespace from ReadString.
 	input = strings.TrimSuffix(input, "\n")
@@ -50,4 +51,11 @@ func main() {
 	    }
 		break
 	} 
+=======
+	fmt.Println(f)
+	for i, v := range f {
+		//customer := v[1:]
+		fmt.Println(i, v)
+	}
+>>>>>>> e8fbf6e (test2)
 }
