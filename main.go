@@ -7,8 +7,8 @@ import (
 	"os"
 	"strings"
 	"path/filepath"
-	"ascii/ascii.go"
 
+	"github.com/frankierosa/csvrw/ascii"
 	"github.com/frankierosa/csvrw/csvreader"
 )
 
