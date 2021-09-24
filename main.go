@@ -21,13 +21,12 @@ var data = make(map[int][]string)
  }
 
 func main() {
+
 	f, err := csvreader.CSVreader(file)
 	if err != nil {
 		log.Fatal(err)
 	}
-	fmt.Println(f)
-	for i, v := range f {
-		append(slice []Type, elems ...Type)
-		fmt.Println(i, v)
+	for _, v := range f {
+		fmt.Println(v)
 	}
 }
