@@ -7,12 +7,14 @@ import (
 	"os"
 	"strings"
 	"path/filepath"
+	"ascii/ascii.go"
 
 	"github.com/frankierosa/csvrw/csvreader"
 )
 
 
 func main() {
+
 	fmt.Print("Enter the csv file location: ")
 
 	// Reading from user input
