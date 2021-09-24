@@ -43,8 +43,7 @@ func main() {
 	       for _, v := range f {
 		   fmt.Println(v)
 	      }
-	    } else {
-			os.IsNotExist(err)
-		}
+	    }
+		break
 	} 
 }
