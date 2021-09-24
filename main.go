@@ -8,12 +8,14 @@ import (
 	"strings"
 	"path/filepath"
 
-	"github.com/frankierosa/csvrw/ascii"
+	"github.com/frankierosa/csvrw/asciiart"
 	"github.com/frankierosa/csvrw/csvreader"
 )
 
 
 func main() {
+	// Loading ascii art.
+	asciiart.PrintAsciiArt()
 
 	fmt.Print("Enter the csv file location: ")
 

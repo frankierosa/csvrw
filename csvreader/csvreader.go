@@ -13,7 +13,6 @@ func CSVreader(filename string) ([][]string, error) {
 	if err != nil {
 		log.Fatal(err)
 	}
-<<<<<<< HEAD
 	
 	// cover file []byte to io.Reader
 	cToReader := bytes.NewReader(file)
@@ -35,7 +34,3 @@ func CSVreader(filename string) ([][]string, error) {
 
 	return records, err
 }
-=======
-	return file, err
-}
->>>>>>> 4cab8b6 (test)
