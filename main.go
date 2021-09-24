@@ -1,32 +1,50 @@
 package main
 
 import (
+	"bufio"
 	"fmt"
 	"log"
+	"os"
+	"strings"
+	"path/filepath"
 
 	"github.com/frankierosa/csvrw/csvreader"
 )
 
-var file = "data/sample.csv"
-var data = make(map[int][]string)
-
- type Person struct {
-	 ID int
-	 FirstName, LastName, CompanyName, Address, City, County, State, ZipCode, Phone, Email string
-
- }
-
- func (p Person) customerData(c map[int]string){
-	 
- }
 
 func main() {
+	fmt.Print("Enter the csv file location: ")
 
-	f, err := csvreader.CSVreader(file)
+	// Reading from user input
+	reader := bufio.NewReader(os.Stdin)
+
+	// Reading buffer from customer input and change it string.
+	input, err := reader.ReadString('\n')
 	if err != nil {
 		log.Fatal(err)
 	}
-	for _, v := range f {
-		fmt.Println(v)
-	}
+
+	// removing any whitespace from ReadString.
+	input = strings.TrimSuffix(input, "\n")
+	input = strings.TrimSuffix(input, "\r")	
+
+	// Get file extesion.
+	fileExt := filepath.Ext(input)
+
+	//Check if file is csv ext and passing into CSVreader. 
+	//If file is csv extesion, it will invoked the func CSVreader to read the file. 
+	//If the file is not csv extesion, will ask for the file again or exit the program.
+	for {
+		if fileExt == ".csv" || fileExt == ".CSV" {
+			f, err := csvreader.CSVreader(input)
+	        if err != nil {
+		        log.Fatal(err)
+	        }
+	       for _, v := range f {
+		   fmt.Println(v)
+	      }
+	    } else {
+			os.IsNotExist(err)
+		}
+	} 
 }
