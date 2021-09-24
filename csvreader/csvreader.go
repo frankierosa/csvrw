@@ -7,7 +7,7 @@ import (
 	"log"
 )
 
-// CSVreader func will open a csv file and return slice []byte if the contents.
+// CSVreader func will open a csv file and return slice [][[]string of all the records.
 func CSVreader(filename string) ([][]string, error) {
 	file, err := ioutil.ReadFile(filename)
 	if err != nil {
