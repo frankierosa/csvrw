@@ -10,11 +10,12 @@ import (
 var file = "data/sample.csv"
 
 func main() {
+
 	f, err := csvreader.CSVreader(file)
 	if err != nil {
 		log.Fatal(err)
 	}
-	for i, v := range f {
-		fmt.Println(i, v)
+	for _, v := range f {
+		fmt.Println(v)
 	}
 }
