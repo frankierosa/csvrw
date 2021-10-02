@@ -24,7 +24,7 @@ func main() {
 	// Loading ascii art.
 	asciiart.PrintAsciiArt()
 
-	//Check if file is csv ext and passing into CSVreader. 
+	//Check csv file ext and passing into CSVreader. 
 	//If file is csv extesion, it will invoked the func CSVreader to read the file. 
 	//If the file is not csv extesion, will ask for the file again or exit the program.
 	for {
@@ -54,7 +54,6 @@ func main() {
 				fmt.Println(i, v)
 			}
 			break
-
 	    } else if fileExt != ".csv" || fileExt != ".CSV" {
 			log.Printf("incorrect path or file extesion")
 			continue
