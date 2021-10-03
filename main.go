@@ -46,7 +46,7 @@ func main() {
 	    // Getting file extesion.
 	    fileExt := filepath.Ext(file)
 		if fileExt == ".csv" || fileExt == ".CSV" {
-			file, err := csvreader.CSVreader(file)
+			file, err := csvreader.CSVReader(file)
 	        if err != nil {
 		        log.Fatal(err)
 	        }
