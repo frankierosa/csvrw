@@ -1,16 +1,16 @@
 package main
 
 import (
-	"bufio"
-	"fmt"
+	_"bufio"
+	_"fmt"
 	"log"
 	"os"
 	"path/filepath"
-	"strings"
+	_"strings"
 
-	"github.com/frankierosa/csvrw/asciiart"
-	"github.com/frankierosa/csvrw/csvreader"
+	_"github.com/frankierosa/csvrw/asciiart"
 	"github.com/frankierosa/csvrw/csvfm"
+	"github.com/frankierosa/csvrw/csvreader"
 )
 
 var (
@@ -19,18 +19,19 @@ var (
 	data [][]string
 
 	// testing proper
-	//file = "data/sample.csv"
+	file = "data/sample.csv"
 )
 
 func main() {
 	// Loading ascii art.
-	asciiart.PrintAsciiArt()
+	//asciiart.PrintAsciiArt()
 
 	for {
-		fmt.Print("Enter the csv file location: ")
+		//fmt.Print("Enter the csv file location: ")
 	
 	    // Reading from user input
-	    reader := bufio.NewReader(os.Stdin)
+	    /*
+		reader := bufio.NewReader(os.Stdin)
 
 	    // Reading buffer from customer input and change it string.
 	    file, err := reader.ReadString('\n')
@@ -40,7 +41,8 @@ func main() {
 
 	     // removing any whitespace from ReadString.
 	    file = strings.TrimSuffix(file, "\n")
-	    file = strings.TrimSuffix(file, "\r")	
+	    file = strings.TrimSuffix(file, "\r")
+		*/
 
 	    // Checking file extesion.
 	    fileExt := filepath.Ext(file)
@@ -63,4 +65,6 @@ func main() {
 			continue
 		} 
 	}
+	
+	csvfm.CSVFormat(data)
 }

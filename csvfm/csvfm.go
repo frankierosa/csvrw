@@ -6,7 +6,9 @@ import (
 	"text/tabwriter"
 )
 
-
+var (
+	columns []string
+)
 
 //CSVFormat display the content separe for each csv columns
 // example form https://networkbit.ch/golang-column-print/
@@ -20,10 +22,10 @@ func CSVFormat(data [][]string) {
 
 	defer w.Flush()
 
-	// read the data
-	for _, d := range data {
-		for _, v := range d {
-			fmt.Println(v)
-		}
+	// get columns
+	for _, d := range data[0][:] {
+		columns = append(columns, d)
 	}
+
+	fmt.Println(columns)
 }
