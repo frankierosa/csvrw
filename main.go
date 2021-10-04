@@ -46,6 +46,8 @@ func main() {
 
 	    // Checking file extesion.
 	    fileExt := filepath.Ext(file)
+
+		// Validate file ext before passing into CSVReader func.
 		if fileExt == ".csv" || fileExt == ".CSV" {
 			
 			// Pasing the file into CSVreader func to collect all the records.
@@ -56,15 +58,17 @@ func main() {
 	        }
 
 			// creating appending into slice data.
+
 			for _, v := range file {
 				data = append(data, v)
 			}
 			break
-	    } else if fileExt != ".csv" || fileExt != ".CSV" {
+	    } else {
 			log.Printf("incorrect path or file extesion")
 			continue
 		} 
 	}
 	
 	csvfm.CSVFormat(data)
+
 }
