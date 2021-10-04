@@ -10,11 +10,13 @@ import (
 
 	"github.com/frankierosa/csvrw/asciiart"
 	"github.com/frankierosa/csvrw/csvreader"
+	"github.com/frankierosa/csvrw/csvfm"
 )
 
 var (
     fileInfo *os.FileInfo
     err      error
+	data [][]string
 
 	// testing proper
 	//file = "data/sample.csv"
@@ -24,9 +26,6 @@ func main() {
 	// Loading ascii art.
 	asciiart.PrintAsciiArt()
 
-	//Check if file is csv ext and passing into CSVreader. 
-	//If file is csv extesion, it will invoked the func CSVreader to read the file. 
-	//If the file is not csv extesion, will ask for the file again or exit the program.
 	for {
 		fmt.Print("Enter the csv file location: ")
 	
@@ -43,21 +42,26 @@ func main() {
 	    file = strings.TrimSuffix(file, "\n")
 	    file = strings.TrimSuffix(file, "\r")	
 
-	    // Getting file extesion.
+	    // Checking file extesion.
 	    fileExt := filepath.Ext(file)
 		if fileExt == ".csv" || fileExt == ".CSV" {
+			
+			// Pasing the file into CSVreader func to collect all the records.
 			file, err := csvreader.CSVreader(file)
 	        if err != nil {
 		        log.Fatal(err)
 	        }
-			for i,v := range file {
-				fmt.Println(i, v)
+
+			// creating appending into slice data.
+			for _, v := range file {
+				data = append(data, v)
 			}
 			break
 
 	    } else if fileExt != ".csv" || fileExt != ".CSV" {
 			log.Printf("incorrect path or file extesion")
 			continue
-		}
+		} 
 	}
+	fmt.Println(data)
 }
