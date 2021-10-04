@@ -1,0 +1,2 @@
+NOTE: This is a reference of the program that i want to do in Golang.
+https://github.com/vegarsti/csvprint/blob/master/csvprint/printer.py
