@@ -8,7 +8,7 @@ import (
 )
 
 // CSVreader open a csv file and return all the content of the file.
-func CSVreader(filename string) ([][]string, error) {
+func CSVReader(filename string) ([][]string, error) {
 	file, err := ioutil.ReadFile(filename)
 	if err != nil {
 		log.Fatal(err)
