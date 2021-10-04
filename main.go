@@ -58,7 +58,6 @@ func main() {
 	        }
 
 			// creating appending into slice data.
-
 			for _, v := range file {
 				data = append(data, v)
 			}
@@ -69,6 +68,6 @@ func main() {
 		} 
 	}
 	
+	// Passing data slice into CSVFomart
 	csvfm.CSVFormat(data)
-
 }
