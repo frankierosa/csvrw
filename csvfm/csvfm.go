@@ -38,7 +38,6 @@ func CSVFormat(data [][]string) {
         }
     }
 
-
     displayData := columnize.SimpleFormat(newData)
     fmt.Println(displayData)   
 
