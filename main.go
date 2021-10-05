@@ -18,7 +18,7 @@ var (
     err      error
 	data [][]string
 
-	// testing proper
+	// testing proper.
 	file = "data/sample.csv"
 )
 
