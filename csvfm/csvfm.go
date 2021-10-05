@@ -9,6 +9,8 @@ import (
 
 var (
     columns []string
+    separe []string
+    newData []string
 )
 
 //CSVFormat display the content separe for each csv columns
@@ -23,6 +25,18 @@ func CSVFormat(data [][]string) {
 
     // Columnize Columns from slice columns
     // For more detail go to https://github.com/ryanuber/columnize
-    result := columnize.SimpleFormat(columns)
-    fmt.Println(result)
+    displayColums := columnize.SimpleFormat(columns)
+    fmt.Println(displayColums)
+
+      // Creating data slice with the content.
+    for _, d := range data {
+        for i := 0; i < 1; i++ {
+        n := strings.Join(d, " | ")
+        newData = append(newData, n)
+        }
+    }
+
+    //displayData := columnize.SimpleFormat(newData)
+    //fmt.Println(displayData)   
+
 }
