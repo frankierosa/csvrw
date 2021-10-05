@@ -18,7 +18,7 @@ var (
     err      error
 	data [][]string
 
-	// testing proper
+	// testing proper.
 	file = "data/sample.csv"
 )
 
@@ -27,10 +27,12 @@ func main() {
 	//asciiart.PrintAsciiArt()
 
 	for {
-		//fmt.Print("Enter the csv file location: ")
+		/*
+		
+		fmt.Print("Enter the csv file location: ")
 	
 	    // Reading from user input
-	    /*
+	    
 		reader := bufio.NewReader(os.Stdin)
 
 	    // Reading buffer from customer input and change it string.
@@ -42,6 +44,7 @@ func main() {
 	     // removing any whitespace from ReadString.
 	    file = strings.TrimSuffix(file, "\n")
 	    file = strings.TrimSuffix(file, "\r")
+
 		*/
 
 	    // Checking file extesion.

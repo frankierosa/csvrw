@@ -8,35 +8,37 @@ import (
 )
 
 var (
-    columns []string
-    separe []string
+	columns []string
     newData []string
 )
 
-//CSVFormat display the content separe for each csv columns
-// example form https://networkbit.ch/golang-column-print/
 func CSVFormat(data [][]string) {
 
-    // Inserting csv columns with "|"
-     for i := 0; i < 1; i++ {
-        c := strings.Join(data[0][:], " | ")
-        columns = append(columns, c)
-    }
+	// Inserting csv columns with "|"
+	for _, v := range data[0][:] {
+		c := strings.ToUpper(v)
+		columns = append(columns, c)
+	}
+	/*
+	
+	for _, v := range columns {
+		for i := 0; i < 1; i++ {
+		c := strings.Join(v, " | ")
+		newData = append(newData, c)
+		}
+	}
+	*/
 
-    // Columnize Columns from slice columns
+    // Columnize content into slice newData
     // For more detail go to https://github.com/ryanuber/columnize
-    displayColums := columnize.SimpleFormat(columns)
-    fmt.Println(displayColums)
-
-      // Creating data slice with the content.
-    for _, d := range data {
+    for _, d := range data[1:] {
         for i := 0; i < 1; i++ {
         n := strings.Join(d, " | ")
         newData = append(newData, n)
         }
     }
 
-    //displayData := columnize.SimpleFormat(newData)
-    //fmt.Println(displayData)   
+    displayData := columnize.SimpleFormat(newData)
+    fmt.Println(displayData)   
 
 }
