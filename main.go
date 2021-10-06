@@ -61,12 +61,12 @@ func main() {
 			fmt.Println()
 			total := 50
             for i := 1; i <= total; i++ {
-			//<ESC> means ASCII "escape" character, 0x1B
-            fmt.Print("\x1b7")   // Save the cursor position, save the cursor and Attrs < ESC > 7
-            fmt.Print("\x1b[2k") // Clear the content erase line of the current line < ESC > [2K]
-            renderbar(i, total)
-            time.Sleep(50 * time.Millisecond)
-            fmt.Print("\x1b8") // Recovery cursor position recovery cursor and Atrs < ESC > 8
+				//<ESC> means ASCII "escape" character, 0x1B
+				fmt.Print("\x1b7")   // Save the cursor position, save the cursor and Attrs < ESC > 7
+                fmt.Print("\x1b[2k") // Clear the content erase line of the current line < ESC > [2K]
+                renderbar(i, total)
+                time.Sleep(50 * time.Millisecond)
+                fmt.Print("\x1b8") // Recovery cursor position recovery cursor and Atrs < ESC > 8
         }
 			file, err := csvreader.CSVReader(file)
 	        if err != nil {
