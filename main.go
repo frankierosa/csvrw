@@ -8,8 +8,6 @@ import (
 	"path/filepath"
 	"strings"
 	"time"
-	"syscall"
-	"unsafe"
 
 	"github.com/frankierosa/csvrw/asciiart"
 	"github.com/frankierosa/csvrw/csvfm"
@@ -34,26 +32,6 @@ func renderbar(count, total int) {
     fmt.Printf("[%s%s]",
         strings.Repeat("=", done),
         strings.Repeat("-", barwidth-done))
-}
-
-// Window Size teminal
-type winsize struct {
-   Row uint16
-   Col uint16
-   X  uint16
-   Y uint16
-}
-
-func getWinSize(fd int) (row, col uint16, err error) {
-   var ws *winsize
-   retCode, _, errno := syscall.Syscall(
-      syscall.SYS_IOCTL, uintptr(fd),
-      uintptr(syscall.TIOCGWINSZ),
-      uintptr(unsafe.Pointer(ws)))
-   if int(retCode) == -1 {
-      panic(errno)
-   }
-   return ws.Row, ws.Col, nil
 }
 
 func main() {
@@ -89,7 +67,7 @@ func main() {
                 renderbar(i, total)
                 time.Sleep(50 * time.Millisecond)
                 fmt.Print("\x1b8") // Recovery cursor position recovery cursor and Atrs < ESC > 8
-        }
+            }
 			file, err := csvreader.CSVReader(file)
 	        if err != nil {
 		        log.Fatal(err)
