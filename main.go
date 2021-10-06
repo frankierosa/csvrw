@@ -18,9 +18,6 @@ var (
     fileInfo *os.FileInfo
     err      error
 	data [][]string
-
-	// testing proper.
-	file = "data/sample.csv"
 )
 
 // renderbar func for Progress bar
@@ -28,7 +25,7 @@ func renderbar(count, total int) {
     barwidth := 30
     done := int(float64(barwidth) * float64(count) / float64(total))
 
-    fmt.Printf("Progress: \x1b[33m%3d%%\x1b[0m ", count*100/total)
+    fmt.Printf("Reading: \x1b[33m%3d%%\x1b[0m ", count*100/total)
     fmt.Printf("[%s%s]",
         strings.Repeat("=", done),
         strings.Repeat("-", barwidth-done))
@@ -39,7 +36,7 @@ func main() {
 	asciiart.PrintAsciiArt()
 
 	for {
-		fmt.Print("Enter the csv file location: ")
+		fmt.Print("Please enter the location from the CSV file: ")
 
 	    // Reading from user input
 		reader := bufio.NewReader(os.Stdin)
