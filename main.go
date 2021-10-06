@@ -25,7 +25,7 @@ func renderbar(count, total int) {
     barwidth := 30
     done := int(float64(barwidth) * float64(count) / float64(total))
 
-    fmt.Printf("Reading: \x1b[33m%3d%%\x1b[0m ", count*100/total)
+    fmt.Printf("Reading file: \x1b[33m%3d%%\x1b[0m ", count*100/total)
     fmt.Printf("[%s%s]",
         strings.Repeat("=", done),
         strings.Repeat("-", barwidth-done))
@@ -36,9 +36,8 @@ func main() {
 	asciiart.PrintAsciiArt()
 
 	for {
-		fmt.Print("Please enter the location from the CSV file: ")
-
 	    // Reading from user input
+		fmt.Print("Please enter the location from the CSV file: ")
 		reader := bufio.NewReader(os.Stdin)
 
 	    // Reading a buffer from customer input and change it string.
