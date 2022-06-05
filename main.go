@@ -45,7 +45,7 @@ func main() {
 	    if err != nil {
 		    log.Fatal(err)
 	    }
-	    // removing any whitespace from ReadString.
+	    // Removing any whitespace from ReadString.
 	    file = strings.TrimSuffix(file, "\n")
 	    file = strings.TrimSuffix(file, "\r")
 
