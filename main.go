@@ -9,9 +9,11 @@ import (
 	"strings"
 	"time"
 
-	"github.com/frankierosa/csvrw/asciiart"
-	"github.com/frankierosa/csvrw/csvfm"
-	"github.com/frankierosa/csvrw/csvreader"
+	"github.com/frankierosa/csvrw/source/asciiart"
+	"github.com/frankierosa/csvrw/source/csvfm"
+	"github.com/frankierosa/csvrw/source/csvreader"
+	"github.com/frankierosa/csvrw/source/progressbar"
+
 )
 
 var (
@@ -20,16 +22,6 @@ var (
 	data [][]string
 )
 
-// renderbar func for Progress bar
-func renderbar(count, total int) {
-    barwidth := 30
-    done := int(float64(barwidth) * float64(count) / float64(total))
-
-    fmt.Printf("Reading file: \x1b[33m%3d%%\x1b[0m ", count*100/total)
-    fmt.Printf("[%s%s]",
-        strings.Repeat("=", done),
-        strings.Repeat("-", barwidth-done))
-}
 
 func main() {
 	// Loading ascii art.
@@ -37,8 +29,17 @@ func main() {
 
 	for {
 	    // Reading from user input
-		fmt.Print("Please enter the location from the CSV file: ")
+		fmt.Print("CSV file location: ")
 		reader := bufio.NewReader(os.Stdin)
+
+		// Progress Bar will be trigger if the file is a csv.
+		var bar Bar
+		bar.NewOption(0, 100)
+		for i := 0; i <= 100; i++ {
+			time.Sleep(100 * time.Millisecond)
+			bar.Play(int64(i))
+		}
+		bar.Finish()
 
 	    // Reading a buffer from customer input and change it string.
 	    file, err := reader.ReadString('\n')
@@ -55,15 +56,6 @@ func main() {
 		// Validate file ext before passing into CSVReader func.
 		if fileExt == ".csv" || fileExt == ".CSV" {
 			fmt.Println()
-			total := 50
-            for i := 1; i <= total; i++ {
-				//<ESC> means ASCII "escape" character, 0x1B
-				fmt.Print("\x1b7") // Save the cursor position, save the cursor and Attrs < ESC > 7
-                fmt.Print("\x1b[2k") // Clear the content erase line of the current line < ESC > [2K]
-                renderbar(i, total)
-                time.Sleep(50 * time.Millisecond)
-                fmt.Print("\x1b8") // Recovery cursor position recovery cursor and Atrs < ESC > 8
-			}
 
 			file, err := csvreader.CSVReader(file)
 	        if err != nil {
