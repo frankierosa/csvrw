@@ -1,5 +1,9 @@
 package progressbar
 
+import(
+	"fmt"
+)
+
 // Bar ...
 type Bar struct {
 	percent int64  // progress percentage
